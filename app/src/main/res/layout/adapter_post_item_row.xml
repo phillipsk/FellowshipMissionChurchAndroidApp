@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="15dp"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground">
+
+    <ImageView
+        android:id="@+id/post_icon"
+        android:layout_alignParentLeft="true"
+        android:src="@mipmap/main_logo"
+        android:layout_width="65dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="65dp" />
+
+
+
+    <LinearLayout
+        android:layout_toRightOf="@+id/post_icon"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/post_title"
+            android:layout_width="match_parent"
+            android:lines="1"
+            android:textSize="@dimen/medium_text_size"
+            android:text="@string/post_title"
+            android:textColor="@color/default_dark_text_color"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/post_date"
+            android:layout_width="match_parent"
+            android:lines="1"
+            android:textSize="@dimen/normal_text_size"
+            android:text="@string/post_date"
+            android:textColor="@color/default_text_color"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:id="@+id/post_content"
+            android:layout_width="match_parent"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:textSize="@dimen/normal_text_size"
+            android:text="@string/sample_content"
+            android:textColor="@color/default_dark_text_color"
+            android:layout_height="wrap_content" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/favorite"
+                android:drawableLeft="@drawable/ic_favorite"
+                android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="15dp"
+                android:drawablePadding="4dp"
+                android:drawableTint="@color/grey"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/view"
+                android:drawableLeft="@drawable/ic_view"
+                android:text="21"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="15dp"
+                android:drawableTint="@color/grey"
+                android:drawablePadding="4dp"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">FMC</string>
+    <string name="continue_with_facebook">Continue with Facebook</string>
+    <string name="continue_with_google">Continue with google</string>
+    <string name="fellowship_mission_church">Fellowship Mission Church</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="post_title">The Spirit of Envy Prayer Service</string>
+    <string name="post_date">November 21, 2017</string>
+    <string name="sample_content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable…</string>
+</resources>

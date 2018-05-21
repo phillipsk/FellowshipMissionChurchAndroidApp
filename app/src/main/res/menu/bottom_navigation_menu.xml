@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/bottom_nav_home"
+        android:icon="@drawable/ic_home_icon"/>
+
+    <item android:title="The Word"
+        android:id="@+id/bottom_nav_the_word"
+        android:icon="@drawable/ic_bible"/>
+
+    <item android:title="Messages"
+        android:id="@+id/bottom_nav_messages"
+        android:icon="@drawable/ic_message"/>
+
+    <item android:title="Location"
+        android:id="@+id/bottom_nav_location"
+        android:icon="@drawable/ic_location_icon"/>
+</menu>
