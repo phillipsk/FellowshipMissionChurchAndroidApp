@@ -35,18 +35,23 @@ ext {
     converterGsonVersion = '2.1.0'
     retrofitConvertersVersion = '2.1.0'
     gsonVersion = '2.6.1'
-    glideAnnotationVersion = '4.5.0'
     picassoVersion = '2.5.2'
-    circleImageVersion = '2.1.0'
+    circleImageVersion = '2.2.0'
     butterKnifeVersion = '8.8.1'
-    circleImageVersion = '2.1.0'
+    calligraphyVersion = '2.3.0'
     sneakerVersion = '1.0.1'
     daggerVersion = '2.14.1'
-    firebaseVersion = '11.8.0'
+    firebaseVersion = '16.0.1'
+    firebaseCoreVersion = '16.0.0'
+    fireStoreVersion = '17.0.1'
+    transitionEveryWhereVersion = '1.7.6'
     rxJavaVersion = '2.3'
     okhttpVersion = '3.9.1'
     mockitoVersion = '2.7.22'
-    timeAgoVersion = '3.0.1'
+    chipCloudVersion = '3.0.5'
+    flexboxVersion = '0.3.2'
+    timeAgoVersion = '3.0.2'
+    playServicesVersion = '15.0.1'
 
 }
 
@@ -60,6 +65,7 @@ dependencies {
     implementation "com.android.support:support-v4:$supportLibraryVersion"
     implementation "com.android.support:customtabs:$supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation "com.google.android.gms:play-services-auth:$playServicesVersion"
 
     ///// Network Libraries ///////
     implementation "com.squareup.okhttp3:okhttp:$okhttpVersion"
@@ -70,13 +76,25 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava:$retrofitConvertersVersion"
 
 
-    implementation 'com.android.support:support-v4:27.1.1'
-    compile "com.google.firebase:firebase-database:$firebaseVersion"
-    compile "com.google.firebase:firebase-auth:$firebaseVersion"
-    compile "com.google.firebase:firebase-messaging:$firebaseVersion"
-    compile "com.google.firebase:firebase-crash:$firebaseVersion"
-    compile "com.google.firebase:firebase-analytics:$firebaseVersion"
-    compile "com.google.firebase:firebase-storage:$firebaseVersion"
+//    compile "com.google.firebase:firebase-database:$firebaseVersion"
+//    compile "com.google.firebase:firebase-auth:$firebaseVersion"
+//    compile "com.google.firebase:firebase-messaging:$firebaseVersion"
+//    compile "com.google.firebase:firebase-crash:$firebaseVersion"
+//    compile "com.google.firebase:firebase-analytics:$firebaseVersion"
+//    compile "com.google.firebase:firebase-storage:$firebaseVersion"
+
+    ///// Firebase ///////
+    implementation "com.google.firebase:firebase-database:$firebaseVersion"
+    implementation "com.google.firebase:firebase-firestore:$fireStoreVersion"
+    implementation "com.google.firebase:firebase-auth:$firebaseVersion"
+    implementation "com.google.firebase:firebase-storage:$firebaseVersion"
+    implementation "com.google.firebase:firebase-core:$firebaseCoreVersion"
+
+
+
+    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+    implementation 'com.facebook.android:facebook-android-sdk:4.29.0'
+
 
     ///// Other Libraries ////
     implementation "com.google.code.gson:gson:$gsonVersion"
