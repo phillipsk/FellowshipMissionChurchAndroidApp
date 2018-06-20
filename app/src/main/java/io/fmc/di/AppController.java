@@ -2,6 +2,7 @@ package io.fmc.di;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDexApplication;
 
 import io.fmc.ui.posts.PostModule;
 import io.fmc.ui.users.UserModule;
@@ -10,7 +11,7 @@ import io.fmc.ui.users.UserModule;
  * Created by sundayakinsete on 14/04/2018.
  */
 
-public class AppController extends Application{
+public class AppController extends MultiDexApplication {
 
     private ApplicationComponent component;
     private static AppController sApp;

@@ -84,6 +84,7 @@ public class FMCApi {
                 }
                 onPostsFetched.onPostItemsFetched(announcements);
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Log.e("databaseError", String.valueOf(databaseError));

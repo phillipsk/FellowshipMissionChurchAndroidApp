@@ -1,5 +1,7 @@
 package io.fmc.ui.posts;
 
+import android.util.Log;
+
 import java.util.List;
 
 import io.fmc.data.models.Announcement;
@@ -40,6 +42,7 @@ public class PostFragmentPresenter implements PostMVP.Presenter {
 
             @Override
             public void onError(String message) {
+                Log.e("databaseError", String.valueOf(message));
 
             }
         });

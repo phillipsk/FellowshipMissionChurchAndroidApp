@@ -12,6 +12,8 @@ android {
         manifestPlaceholders = [onesignal_app_id               : "9cde7f32-fc6b-4849-baaa-a770e9725791",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "REMOTE"]
+        multiDexEnabled true
+
 
         buildConfigField "String", "SERVER_URL", '"' + "https://en.bibles.org/" + '"'
         buildConfigField "String", "API_KEY", '"' + "2CYcT1Y1RfQBN1pUtPwO8tfZRy0JIPJOx9d7R2YW" + '"'
@@ -110,6 +112,7 @@ dependencies {
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-android-processor:$daggerVersion"
     annotationProcessor "com.google.dagger:dagger-compiler:$daggerVersion"
+    implementation 'com.android.support:multidex:1.0.3'
 
 
     implementation 'com.afollestad:easyvideoplayer:0.3.0'

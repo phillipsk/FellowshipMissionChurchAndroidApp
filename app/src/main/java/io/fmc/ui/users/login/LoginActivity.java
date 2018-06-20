@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 
+import com.facebook.CallbackManager;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.twitter.sdk.android.core.identity.TwitterAuthClient;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -19,8 +24,9 @@ import io.fmc.ui.dashboard.DashboardActivity;
 import io.fmc.ui.users.createaccount.CreateAccountActivity;
 import io.fmc.ui.users.password.PasswordResetActivity;
 import io.fmc.utils.SessionManager;
+import io.fmc.utils.socialauth.SocialAuthentication;
 
-public class LoginActivity extends BaseActivity implements LoginMVP.View{
+public class LoginActivity extends BaseActivity implements LoginMVP.View, SocialAuthentication.SocialAuthenticationListener{
 
     @BindView(R.id.email) EditText email;
     @BindView(R.id.password) EditText password;
@@ -29,6 +35,13 @@ public class LoginActivity extends BaseActivity implements LoginMVP.View{
     LoginMVP.Presenter presenter;
     @Inject
     SessionManager sessionManager;
+
+    @Inject
+    public SocialAuthentication socialAuthentication;
+    public CallbackManager mCallbackManager;
+    public TwitterAuthClient twitterAuthClient;
+    public SocialAuthentication.Type socialLoginType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,17 +53,21 @@ public class LoginActivity extends BaseActivity implements LoginMVP.View{
         ((AppController)getApplication()).getComponent().inject(this);
 
         presenter.setView(this);
+
+        socialAuthentication.init(this);
     }
 
 
     @OnClick(R.id.btn_facebook_sign)
     public void facebookBtnClicked(){
-
+        socialLoginType = SocialAuthentication.Type.FACEBOOK;
+        mCallbackManager = socialAuthentication.initFacebookRegistration(this,this);
     }
 
     @OnClick(R.id.btn_google)
     public void googleBtnClicked(){
-
+        socialLoginType = SocialAuthentication.Type.GOOGLE;
+        socialAuthentication.initLoginWithGoogle(this);
     }
 
     @OnClick(R.id.label_create_account)
@@ -121,4 +138,34 @@ public class LoginActivity extends BaseActivity implements LoginMVP.View{
         hideLaoding();
     }
 
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (socialLoginType){
+            case FACEBOOK:
+                mCallbackManager.onActivityResult(requestCode, resultCode, data);
+                break;
+            case GOOGLE:
+                GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+                socialAuthentication.handleSignInResult(result,this);
+                break;
+            case TWITTER:
+                twitterAuthClient.onActivityResult(requestCode, resultCode, data);
+                break;
+        }
+    }
+
+
+
+
+    @Override
+    public void onAuthenticationComplete(User user) {
+
+    }
+
+    @Override
+    public void onAuthenticationError(String error) {
+
+    }
 }

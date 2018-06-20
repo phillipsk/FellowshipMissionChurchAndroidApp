@@ -4,6 +4,8 @@
     <string name="continue_with_google">Continue with google</string>
     <string name="fellowship_mission_church">Fellowship Mission Church</string>
     <string name="google_api_key_fmc">AIzaSyCxIzFEV5kl85iHqSmmYFHaPqmbg5EHpx4</string>
+    <string name="facebook_app_id">166447543925440</string>
+    <string name="fb_login_protocol_scheme">fb166447543925440</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
