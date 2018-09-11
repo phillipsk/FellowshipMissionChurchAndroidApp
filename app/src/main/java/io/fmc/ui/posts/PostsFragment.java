@@ -95,9 +95,9 @@ public class PostsFragment extends BaseFragment implements PostMVP.View {
         postAdapter.setData(posts);
     }
 
-
-    @OnClick(R.id.btn_add_post)
-    public void addPost(){
-        
-    }
+//commented until post activity enabled
+//    @OnClick(R.id.btn_add_post)
+//    public void addPost(){
+//
+//    }
 }

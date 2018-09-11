@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#cccccc"
+    android:paddingBottom=".5dp">
+
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/white"
+      android:padding="15dp">
+  <TextView
+      android:layout_alignParentLeft="true"
+      android:background="@color/white"
+      android:id="@android:id/text1"
+      android:layout_width="match_parent"
+      android:textSize="14sp"
+      android:text="Media Name"
+      android:layout_height="wrap_content"
+      android:layout_marginRight="15dp"
+      android:layout_toLeftOf="@+id/btn_play"
+      android:textAppearance="?attr/textAppearanceListItem"/>
+
+  <ImageButton
+      android:id="@+id/btn_play"
+      android:layout_alignParentRight="true"
+      android:src="@mipmap/play_arrow"
+      android:background="@drawable/primary_round"
+      android:padding="15dp"
+      android:layout_width="40dp"
+      android:layout_height="40dp" />
+
+  <ImageButton
+      android:id="@+id/btn_pause"
+      android:layout_alignParentRight="true"
+      android:src="@mipmap/stop"
+      android:visibility="invisible"
+      android:background="@drawable/primary_round"
+      android:padding="15dp"
+      android:layout_width="40dp"
+      android:layout_height="40dp" />
+  </RelativeLayout>
+</LinearLayout>

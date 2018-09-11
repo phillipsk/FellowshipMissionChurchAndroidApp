@@ -16,7 +16,7 @@ import io.fmc.ui.aboutus.AboutUsFragment;
 import io.fmc.ui.base.BaseActivity;
 import io.fmc.ui.location.LocationFragment;
 import io.fmc.ui.posts.PostsFragment;
-import io.fmc.ui.theword.AudiosFragment;
+import io.fmc.ui.listen.AudiosFragment;
 import io.fmc.utils.BottomNavigationViewHelper;
 
 public class DashboardActivity extends BaseActivity {

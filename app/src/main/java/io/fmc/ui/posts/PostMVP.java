@@ -3,7 +3,6 @@ package io.fmc.ui.posts;
 import java.util.List;
 
 import io.fmc.data.models.Announcement;
-import io.fmc.ui.theword.AudioMVP;
 
 /**
  * Created by sundayakinsete on 17/05/2018.
