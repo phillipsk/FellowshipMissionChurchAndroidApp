@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fmc.R;
+import io.fmc.ui.aboutus.AboutUsFragment;
 import io.fmc.ui.base.BaseActivity;
+import io.fmc.ui.location.LocationFragment;
 import io.fmc.ui.posts.PostsFragment;
 import io.fmc.ui.theword.AudiosFragment;
 import io.fmc.utils.BottomNavigationViewHelper;
@@ -35,9 +37,26 @@ public class DashboardActivity extends BaseActivity {
 
         fragmentManager = getSupportFragmentManager();
 
-        setupBaseActionbar(toolBar,"Home",false);
+//        setupBaseActionbar(toolBar,"Home",false);
+        setupBaseActionbar(toolBar,"Fellowship Mission Church",false);
+
+
 
         setTupBottomNavigation();
+
+//        bottomNavigationView.setSelectedItemId(R.id.bottom_nav_the_word);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        bottomNavigationView.setSelectedItemId(R.id.bottom_nav_the_word);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        bottomNavigationView.setSelectedItemId(R.id.bottom_nav_the_word);
     }
 
     private void setTupBottomNavigation() {
@@ -49,8 +68,11 @@ public class DashboardActivity extends BaseActivity {
                 switchFragments(item.getItemId());
                 return true;
             }
+
         });
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
+
 
     }
 
@@ -78,14 +100,16 @@ public class DashboardActivity extends BaseActivity {
     public Fragment getItem(int menu_id) {
         Fragment fragment = null;
         if (menu_id == R.id.bottom_nav_home) {
-            fragment = new PostsFragment();
+            fragment = new AboutUsFragment();
         } else if(menu_id == R.id.bottom_nav_the_word) {
+            fragment = new PostsFragment();
+        } else if(menu_id == R.id.bottom_nav_listen) {
             fragment = new AudiosFragment();
-        } else if(menu_id == R.id.bottom_nav_messages) {
-            fragment = new PostsFragment();
         }else if(menu_id == R.id.bottom_nav_location){
-            fragment = new PostsFragment();
+            fragment = new LocationFragment();
         }
         return fragment;
     }
+
+
 }

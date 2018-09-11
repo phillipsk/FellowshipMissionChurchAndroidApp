@@ -10,8 +10,8 @@
         android:id="@+id/bottom_nav_the_word"
         android:icon="@drawable/ic_bible"/>
 
-    <item android:title="Messages"
-        android:id="@+id/bottom_nav_messages"
+    <item android:title="Listen"
+        android:id="@+id/bottom_nav_listen"
         android:icon="@drawable/ic_message"/>
 
     <item android:title="Location"

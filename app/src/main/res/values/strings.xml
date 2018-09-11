@@ -1,11 +1,63 @@
 <resources>
     <string name="app_name">FMC</string>
+    <string name="app_name_long">Fellowship Mission Church</string>
     <string name="continue_with_facebook">Continue with Facebook</string>
     <string name="continue_with_google">Continue with google</string>
     <string name="fellowship_mission_church">Fellowship Mission Church</string>
     <string name="google_api_key_fmc">AIzaSyCxIzFEV5kl85iHqSmmYFHaPqmbg5EHpx4</string>
     <string name="facebook_app_id">166447543925440</string>
     <string name="fb_login_protocol_scheme">fb166447543925440</string>
+
+
+    <string-array name="models_details">
+        <item>
+            We believe in Jesus because he is our salvation from our sins. He is the only one that
+            paid the price for us to escape the eternal damnation from our sins.
+        </item>
+        <item>
+            We have various church values that are connected to our church. Some of the key values are: praise,
+            worship, ministry and love.
+        </item>
+        <item>
+            Ministry is the work and opportunity that God allows us
+            to partake in pertaining to his kingdom.  Ministry is important because it allows us
+            to overcome our legacy, the negative from our past and ourselves that would have
+            produced bad fruit in our futures. Ministry helps us produce good spiritually and
+            naturally as we move forward in our lives.
+        </item>
+        <item>
+            Pending more info…
+        </item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+        <item>Pending more info…</item>
+
+    </string-array>
+
+    <string-array name="models_titles">
+        <item>About Us</item>
+        <item>Our Values</item>
+        <item>Ministry Over Legacy</item>
+        <item>Prayer</item>
+        <item>Title</item>
+        <item>Title</item>
+        <item>Title</item>
+        <item>Title</item>
+        <item>Title</item>
+        <item>Title</item>
+        <item>Title</item>
+        <item>Title</item>
+
+    </string-array>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -14,4 +66,5 @@
     <string name="post_title">The Spirit of Envy Prayer Service</string>
     <string name="post_date">November 21, 2017</string>
     <string name="sample_content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable…</string>
+
 </resources>

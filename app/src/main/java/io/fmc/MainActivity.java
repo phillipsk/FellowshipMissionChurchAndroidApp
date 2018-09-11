@@ -19,7 +19,9 @@ public class MainActivity extends AppCompatActivity {
         if(sessionManager.isLoggedIn()) {
             startActivity(new Intent(this, DashboardActivity.class));
         }else{
-            startActivity(new Intent(this, LoginActivity.class));
+//            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, DashboardActivity.class));
+
         }
         finish();
 
