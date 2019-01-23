@@ -121,7 +121,7 @@ dependencies {
     implementation 'com.afollestad:easyvideoplayer:0.3.0'
     implementation 'io.github.jeancsanchez.jcplayer:jcplayer:2.6.0-alpha'
 
-    implementation "org.greenrobot:greendao:3.2.2"
+    implementation "org.greenrobot:greendao:3.2.0"
 
     //RXJava
     implementation "io.reactivex:rxandroid:1.2.1"

@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 import io.fmc.R;
 import io.fmc.ui.aboutus.AboutUsFragment;
 import io.fmc.ui.base.BaseActivity;
+import io.fmc.ui.bible.BibleFragment;
 import io.fmc.ui.location.LocationFragment;
 import io.fmc.ui.posts.PostsFragment;
 import io.fmc.ui.listen.AudiosFragment;
@@ -101,10 +102,12 @@ public class DashboardActivity extends BaseActivity {
         Fragment fragment = null;
         if (menu_id == R.id.bottom_nav_home) {
             fragment = new AboutUsFragment();
-        } else if(menu_id == R.id.bottom_nav_the_word) {
+        }else if(menu_id == R.id.bottom_nav_the_word) {
             fragment = new PostsFragment();
-        } else if(menu_id == R.id.bottom_nav_listen) {
+        }else if(menu_id == R.id.bottom_nav_listen) {
             fragment = new AudiosFragment();
+        }else if (menu_id == R.id.bottom_nav_bible){
+            fragment = new BibleFragment();
         }else if(menu_id == R.id.bottom_nav_location){
             fragment = new LocationFragment();
         }

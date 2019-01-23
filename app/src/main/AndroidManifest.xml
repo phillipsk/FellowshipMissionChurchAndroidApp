@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.fmc">
 
+    <!--this class is instantiated before any of the application's components.-->
+    <!--.di.AppController-->
     <application
         android:name=".di.AppController"
         android:allowBackup="true"
