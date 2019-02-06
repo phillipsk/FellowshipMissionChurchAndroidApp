@@ -1,11 +1,10 @@
 package io.fmc;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import io.fmc.ui.dashboard.DashboardActivity;
-import io.fmc.ui.users.login.LoginActivity;
 import io.fmc.utils.SessionManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
         }
         finish();
+
+//        String COMPLETE_SERVER_URL = "https://api.scripture.api.bible/v1/bibles";
+//        BibleDownloader.run(COMPLETE_SERVER_URL);
 
 
     }

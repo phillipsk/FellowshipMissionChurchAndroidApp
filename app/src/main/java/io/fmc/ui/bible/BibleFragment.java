@@ -5,19 +5,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.util.ArrayList;
+import android.widget.TextView;
 
 import io.fmc.R;
-import io.fmc.adapters.CustomRecyclerAdapter;
-import io.fmc.data.models.AboutUsModel;
 
 public class BibleFragment extends Fragment {
+
 
     @Nullable
     @Override
@@ -25,6 +22,10 @@ public class BibleFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         View rv = inflater.inflate(R.layout.fragment_about_us,container,false);
+
+        TextView mTextView = (TextView) rv.findViewById(R.id.text); //findViewById(R.id.text);
+
+
         return rv;
     }
 
@@ -35,8 +36,7 @@ public class BibleFragment extends Fragment {
 
         // use a linear layout manager
 //        mLayoutManager = new LinearLayoutManager(this);
-        mLayoutManager = new LinearLayoutManager(getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+
 
     }
 
@@ -44,7 +44,14 @@ public class BibleFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mLayoutManager = new LinearLayoutManager(getActivity());
+        /* In order to have to documentation work, they instantiate these variables above
+        *     private RecyclerView mRecyclerView;
+              private RecyclerView.Adapter mAdapter;
+              private RecyclerView.LayoutManager mLayoutManager;
+
+              mLayoutManager = new LinearLayoutManager(getActivity());
+              mRecyclerView.setLayoutManager(mLayoutManager);
+        */
 
 
     }
@@ -56,4 +63,29 @@ public class BibleFragment extends Fragment {
         rv.setAdapter(adapter);
     }*/
 
-}
+// ...
+/*
+        // Instantiate the RequestQueue.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://www.google.com";
+
+        // Request a string response from the provided URL.
+        StringRequest stringRequest = new StringRequest(DownloadManager.Request.Method.GET, url,
+                new Network.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        // Display the first 500 characters of the response string.
+                        mTextView.setText("Response is: " + response.substring(0, 500));
+                    }
+                }, new Network.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                mTextView.setText("That didn't work!");
+            }
+        });
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest);*/
+
+    }
+
