@@ -5,7 +5,6 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -18,16 +17,18 @@ public class BibleDownloader {
     static String COMPLETE_SERVER_URL = "https://api.scripture.api.bible/v1/bibles";
     static String url = "https://api.scripture.api.bible/v1/bibles";
     static String urlBooks = "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/books";
+    static String urlRuth = "https://api.scripture.api.bible/v1/bibles/de4e12af7f28f599-01/" +
+            "books/RUT/chapters";
     static String urlT = "http://fellowshipmission.church/";
     private static final String ENDPOINT = "https://api.github.com/repos/square/okhttp/contributors";
     private static final Moshi MOSHI = new Moshi.Builder().build();
-    private static final JsonAdapter<List<Contributor>> CONTRIBUTORS_JSON_ADAPTER = MOSHI.adapter(
-            Types.newParameterizedType(List.class, Contributor.class));
+    private static final JsonAdapter<List<BibleBooks>> CONTRIBUTORS_JSON_ADAPTER = MOSHI.adapter(
+            Types.newParameterizedType(List.class, BibleBooks.class));
 
-    static class Contributor {
-        String login;
-        int contributions;
-    }
+//    static class Contributor {
+//        String login;
+//        int contributions;
+//    }
 
     static class BibleBooks {
         String name;
@@ -37,13 +38,14 @@ public class BibleDownloader {
     public static void main(String[] args) {
         OkHttpClient client = new OkHttpClient();
 
+
         //TODO: remove unused credential okhttp dependency
 //        String credential = Credentials.basic("jesse", "password1");
 
         // Create request for remote resource.
         Request request = new Request.Builder()
-                .url(urlBooks)
                 .header("Authorization",BuildConfig.API_KEY)
+                .url(urlRuth)
                 .build();
 
         // Execute the request and retrieve the response.
@@ -57,19 +59,24 @@ public class BibleDownloader {
 
             // Deserialize HTTP response to concrete type.
             ResponseBody body = response.body();
-            List<Contributor> contributors = CONTRIBUTORS_JSON_ADAPTER.fromJson(body.source());
+//            List<Contributor> contributors = CONTRIBUTORS_JSON_ADAPTER.fromJson(body.source());
+            List<BibleBooks> bBooks = CONTRIBUTORS_JSON_ADAPTER.fromJson(body.source());
 
             // Sort list by the most contributions.
-            Collections.sort(contributors, (c1, c2) -> c2.contributions - c1.contributions);
+//            Collections.sort(contributors, (c1, c2) -> c2.contributions - c1.contributions);
 
 
             // Output list of contributors.
-            for (Contributor contributor : contributors) {
-                System.out.println(contributor.login + ": " + contributor.contributions);
+            for (BibleBooks bibleBooks : bBooks) {
+//                System.out.println(contributor.login + ": " + contributor.contributions);
+                System.out.println(bibleBooks.name);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+
     }
 
 
