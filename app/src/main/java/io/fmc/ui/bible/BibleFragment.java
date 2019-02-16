@@ -1,20 +1,33 @@
 package io.fmc.ui.bible;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.List;
+
+import javax.inject.Inject;
+
+import io.fmc.FellowshipApplication;
 import io.fmc.R;
+import io.fmc.network.BibleBook;
 
-public class BibleFragment extends Fragment {
+public class BibleFragment extends Fragment implements BibleScreen {
 
+    private String bibleId = "de4e12af7f28f599-01";
+    private RecyclerView recyclerView;
+    private BooksAdapter booksAdapter;
+
+    @Inject BiblePresenter biblePresenter;
 
     @Nullable
     @Override
@@ -30,10 +43,23 @@ public class BibleFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ((FellowshipApplication) context.getApplicationContext()).getAppComponent().inject(this);
+
+        biblePresenter.bind(this);
+
+        biblePresenter.fetchBibleBooks(bibleId);
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        RecyclerView rv = (RecyclerView) view.findViewById(R.id.recyclerview);
-
+        recyclerView = view.findViewById(R.id.recyclerview);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        booksAdapter = new BooksAdapter();
+        recyclerView.setAdapter(booksAdapter);
         // use a linear layout manager
 //        mLayoutManager = new LinearLayoutManager(this);
 
@@ -56,8 +82,18 @@ public class BibleFragment extends Fragment {
 
     }
 
+    @Override
+    public void onDestroy() {
+        biblePresenter.unbind();
+        super.onDestroy();
+    }
 
-/*    private void setUpRecyclerView(RecyclerView rv, ArrayList<AboutUsModel> models) {
+    @Override
+    public void onNewBibleBooks(List<BibleBook> books) {
+        booksAdapter.setItems(books);
+    }
+
+    /*    private void setUpRecyclerView(RecyclerView rv, ArrayList<AboutUsModel> models) {
         rv.setLayoutManager(new LinearLayoutManager(getActivity()));
 //        CustomRecyclerAdapter adapter = new CustomRecyclerAdapter(models);
         rv.setAdapter(adapter);

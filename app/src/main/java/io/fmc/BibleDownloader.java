@@ -1,5 +1,6 @@
 package io.fmc;
 
+import com.google.gson.annotations.SerializedName;
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
@@ -27,14 +28,41 @@ public class BibleDownloader {
     private static final JsonAdapter<List<BibleBooks>> CONTRIBUTORS_JSON_ADAPTER = MOSHI.adapter(
             Types.newParameterizedType(List.class, BibleBooks.class));
 
+        private static final JsonAdapter<BooksResponse> BIBLE_RESPONSE_JSON_ADAPTER = MOSHI.adapter(BooksResponse.class);
+
 //    static class Contributor {
 //        String login;
 //        int contributions;
 //    }
 
+    public static class BooksResponse {
+        public List<BibleBooks> data;
+
+        public BooksResponse(List<BibleBooks> bibleBooks) {
+            this.data = bibleBooks;
+        }
+
+        @Override
+        public String toString() {
+            return "BooksResponse{" +
+                    "bibleBooks=" + data +
+                    '}';
+        }
+    }
+
     static class BibleBooks {
-        String name;
+        String id;
+        //String name;
 //        int contributions;
+
+
+        @Override
+        public String toString() {
+            return "BibleBooks{" +
+                    "id='" + id + '\'' +
+                    '}';
+        }
+
     }
 
     public static void main(String[] args) throws UnsupportedEncodingException {
@@ -55,7 +83,7 @@ public class BibleDownloader {
         // Create request for remote resource.
         Request request = new Request.Builder()
 //                .header("Authorization",BuildConfig.API_KEY)
-                .header("Authorization", credential)
+                .header("api-key", BuildConfig.API_KEY)
                 .url(urlRuth)
                 .build();
 
@@ -71,16 +99,22 @@ public class BibleDownloader {
             // Deserialize HTTP response to concrete type.
             ResponseBody body = response.body();
 //            List<Contributor> contributors = CONTRIBUTORS_JSON_ADAPTER.fromJson(body.source());
-            List<BibleBooks> bBooks = CONTRIBUTORS_JSON_ADAPTER.fromJson(body.source());
+            //List<BibleBooks> bBooks = CONTRIBUTORS_JSON_ADAPTER.fromJson(body.source());
 
+            Moshi moshi = new Moshi.Builder().build();
+            JsonAdapter<BooksResponse> jsonAdapter = moshi.adapter(BooksResponse.class);
+
+            BooksResponse booksResponse = jsonAdapter.fromJson(body.source());
+
+            System.out.println(booksResponse);
             // Sort list by the most contributions.
 //            Collections.sort(contributors, (c1, c2) -> c2.contributions - c1.contributions);
 
 
             // Output list of contributors.
-            for (BibleBooks bibleBooks : bBooks) {
+            for (BibleBooks bibleBooks : booksResponse.data) {
 //                System.out.println(contributor.login + ": " + contributor.contributions);
-                System.out.println(bibleBooks.name);
+                System.out.println(bibleBooks.id);
             }
         } catch (IOException e) {
             e.printStackTrace();

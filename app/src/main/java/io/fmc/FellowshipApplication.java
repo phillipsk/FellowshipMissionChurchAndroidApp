@@ -1,11 +1,11 @@
 package io.fmc;
 
-import android.app.Application;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
 import com.github.kittinunf.fuel.Fuel;
@@ -33,7 +33,7 @@ import io.fmc.db.DaoSession;
 import com.facebook.stetho.Stetho;
 import com.onesignal.OneSignal;
 
-public class FellowshipApplication extends Application {
+public class FellowshipApplication extends MultiDexApplication {
 
     public static final boolean ENCRYPTED = true;
     private DaoSession daoSession;
@@ -41,10 +41,12 @@ public class FellowshipApplication extends Application {
     public static final String DEFAULT_ADDRESS = "fellowshipmission.church";
     public static final String API_SERVICE = "mp3";
 
-    private static FellowshipApplication sharedInstance;
-    public static synchronized FellowshipApplication getInstance() {
+    //private static FellowshipApplication sharedInstance;
+    private AppComponent appComponent;
+
+    /*public static synchronized FellowshipApplication getInstance() {
         return sharedInstance;
-    }
+    }*/
     Context context;
 
     public static final String BROADCAST_DOWNLOAD_AUDIO_FAILED = "download_audio_failed";
@@ -54,6 +56,7 @@ public class FellowshipApplication extends Application {
 
     public List<AudioMessage> audioMessages = new ArrayList<>();
 
+    // public ExampleSingleton exampleSingleton;
 
     @Override
     public void onCreate() {
@@ -67,11 +70,21 @@ public class FellowshipApplication extends Application {
                 .unsubscribeWhenNotificationsAreDisabled(true)
                 .init();
 
-        sharedInstance = this;
-        sharedInstance.initBackend(context);
-
+        //sharedInstance = this;
+        //sharedInstance.initBackend(context);
 
         initDatabase();
+
+        appComponent = DaggerAppComponent.builder()
+                .build();
+
+        appComponent.inject(this);
+
+        // exampleSingleton =
+    }
+
+    public AppComponent getAppComponent() {
+        return appComponent;
     }
 
     private void initBackend(Context context) {

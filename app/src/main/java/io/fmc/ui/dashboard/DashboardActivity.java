@@ -63,13 +63,9 @@ public class DashboardActivity extends BaseActivity {
     private void setTupBottomNavigation() {
         switchFragments(R.id.bottom_nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switchFragments(item.getItemId());
-                return true;
-            }
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switchFragments(item.getItemId());
+            return true;
         });
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
@@ -100,7 +96,8 @@ public class DashboardActivity extends BaseActivity {
 
     public Fragment getItem(int menu_id) {
         Fragment fragment = null;
-        if (menu_id == R.id.bottom_nav_home) {
+        fragment = new BibleFragment();
+        /*if (menu_id == R.id.bottom_nav_home) {
             fragment = new AboutUsFragment();
         }else if(menu_id == R.id.bottom_nav_the_word) {
             fragment = new PostsFragment();
@@ -110,7 +107,7 @@ public class DashboardActivity extends BaseActivity {
             fragment = new BibleFragment();
         }else if(menu_id == R.id.bottom_nav_location){
             fragment = new LocationFragment();
-        }
+        }*/
         return fragment;
     }
 

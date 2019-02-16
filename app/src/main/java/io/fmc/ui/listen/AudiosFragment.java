@@ -68,7 +68,7 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
 
             initBroadcastReceiver();
 
-            daoSession = FellowshipApplication.getInstance().getDaoSession();
+            //daoSession = FellowshipApplication.getInstance().getDaoSession();
 
 //        mediaPlayer = new MediaPlayer();
 //        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -80,7 +80,7 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
 
             updateList();
 
-            FellowshipApplication.getInstance().fetchAudioMessage();
+            //FellowshipApplication.getInstance().fetchAudioMessage();
         }
 
         private void initBroadcastReceiver() {
@@ -108,7 +108,7 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
 
                     if (broadcast_type.toString().equals(FellowshipApplication.BROADCAST_DOWNLOAD_AUDIO_SUCCESSFUL)) {
                         audioMessages.clear();
-                        audioMessages.addAll(FellowshipApplication.getInstance().audioMessages);
+                        //audioMessages.addAll(FellowshipApplication.getInstance().audioMessages);
                         initJCPlayer();
                         updateList();
                     }
@@ -285,14 +285,14 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
                 holder.btnPlay.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        FellowshipApplication.getInstance().sendLocalBroadcast(FellowshipApplication.BROADCAST_PLAY_MEDIA_AT_POSITION,null,position);
+                        //FellowshipApplication.getInstance().sendLocalBroadcast(FellowshipApplication.BROADCAST_PLAY_MEDIA_AT_POSITION,null,position);
                     }
                 });
 
                 holder.btnPause.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        FellowshipApplication.getInstance().sendLocalBroadcast(FellowshipApplication.BROADCAST_PAUSE_MEDIA_AT_POSITION,null,position);
+                        //FellowshipApplication.getInstance().sendLocalBroadcast(FellowshipApplication.BROADCAST_PAUSE_MEDIA_AT_POSITION,null,position);
                     }
                 });
 
