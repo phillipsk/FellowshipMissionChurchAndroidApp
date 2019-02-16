@@ -5,8 +5,10 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
+import okhttp3.Credentials;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -35,16 +37,25 @@ public class BibleDownloader {
 //        int contributions;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         OkHttpClient client = new OkHttpClient();
 
 
-        //TODO: remove unused credential okhttp dependency
+        String loginString = BuildConfig.API_KEY;
+        String password = "";
+//        final String encodedApiKey =
+//                Base64.encodeToString(String.format("%s:%s", loginString, password).getBytes("UTF-8"),
+//                        Base64.NO_WRAP);
+
+
+        String credential = Credentials.basic("",BuildConfig.API_KEY);
+//        String credential = Credentials.basic("",BuildConfig.API_KEY);
 //        String credential = Credentials.basic("jesse", "password1");
 
         // Create request for remote resource.
         Request request = new Request.Builder()
-                .header("Authorization",BuildConfig.API_KEY)
+//                .header("Authorization",BuildConfig.API_KEY)
+                .header("Authorization", credential)
                 .url(urlRuth)
                 .build();
 

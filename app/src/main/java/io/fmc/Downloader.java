@@ -7,7 +7,6 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 
 public class Downloader {
@@ -38,7 +37,8 @@ public class Downloader {
         httpClient.addNetworkInterceptor(logging);
 
         OkHttpClient client = httpClient.build();
-
+    }
+}
 //        client.newCall()
 
 //        Request request = new Request.Builder()
@@ -74,4 +74,4 @@ public class Downloader {
         }
     }*/
 
-}
+
