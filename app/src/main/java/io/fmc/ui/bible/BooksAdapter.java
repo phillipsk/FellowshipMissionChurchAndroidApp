@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,9 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
         }
 
         void bind(BibleBook book) {
-            ((TextView) itemView.findViewById(R.id.book_name)).setText(book.getBookId());
+            ((TextView) itemView.findViewById(R.id.book_name)).setText(book.getReference());
+
+            itemView.setOnClickListener(view -> Toast.makeText(view.getContext(), "Clicked on " + book.getReference(), Toast.LENGTH_LONG).show());
         }
     }
 }
