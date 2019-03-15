@@ -1,16 +1,23 @@
 package io.fmc.network;
 
 public class BibleBook {
-    String id;
-    String bookId;
-    String number;
-    String reference;
 
-    public BibleBook(String id, String bookId, String number, String reference) {
+    /*      "id": "EXO",
+      "bibleId": "de4e12af7f28f599-01",
+      "abbreviation": "Exo",
+      "name": "Exodus",
+      "nameLong": "The Second Book of Moses, called Exodus"
+      */
+    String id;
+    String abbreviation;
+    String name;
+    String nameLong;
+
+    public BibleBook(String id, String abbreviation, String name, String nameLong) {
         this.id = id;
-        this.bookId = bookId;
-        this.number = number;
-        this.reference = reference;
+        this.abbreviation = abbreviation;
+        this.name = name;
+        this.nameLong = nameLong;
     }
 
     public String getId() {
@@ -18,14 +25,14 @@ public class BibleBook {
     }
 
     public String getBookId() {
-        return bookId;
+        return abbreviation;
     }
 
-    public String getNumber() {
-        return number;
+    public String getName() {
+        return name;
     }
 
-    public String getReference() {
-        return reference;
+    public String getNameLong() {
+        return nameLong;
     }
 }

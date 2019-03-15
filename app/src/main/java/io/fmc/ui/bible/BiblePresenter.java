@@ -31,6 +31,7 @@ public class BiblePresenter {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(booksResponse -> bibleScreen.onNewBibleBooks(booksResponse.data),
                         throwable -> Log.e("TEST", "Error in fetch Bible books", throwable)));
+//        compositeDisposable.add(bibleApi.getBibleBooks(bibleId).subscribeOn(Scheduler.))
     }
 
     public void unbind() {

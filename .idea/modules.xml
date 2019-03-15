@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FMCApp.iml" filepath="$PROJECT_DIR$/FMCApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/FellowshipMissionChurchAndroidApp.iml" filepath="$PROJECT_DIR$/.idea/FellowshipMissionChurchAndroidApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FellowshipMissionChurchAndroidApp.iml" filepath="$PROJECT_DIR$/FellowshipMissionChurchAndroidApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/greenDaoGenerator/greenDaoGenerator.iml" filepath="$PROJECT_DIR$/greenDaoGenerator/greenDaoGenerator.iml" />
     </modules>
