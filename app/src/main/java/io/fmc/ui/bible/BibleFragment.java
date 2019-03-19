@@ -23,7 +23,7 @@ import io.fmc.network.BibleBook;
 
 public class BibleFragment extends Fragment implements BibleScreen {
 
-    private String bibleId = "de4e12af7f28f599-01";
+    private String bibleId = "de4e12af7f28f599-02";
     private RecyclerView recyclerView;
     private BooksAdapter booksAdapter;
 

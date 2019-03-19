@@ -25,7 +25,7 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
     @NonNull
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new BookViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_item, parent, false));
+        return new BookViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.rv2_card_view_list, parent, false));
     }
 
     @Override
@@ -50,11 +50,13 @@ public class BooksAdapter extends RecyclerView.Adapter<BooksAdapter.BookViewHold
         }
 
         void bind(BibleBook book) {
-            ((TextView) itemView.findViewById(R.id.info_text)).setText(book.getName());
-//            itemView.findViewById(R.id.start);
+            ((TextView) itemView.findViewById(R.id.country_name)).setText(book.getName());
+//            ((TextView) itemView.findViewById(R.id.country_name)).setEllipsize(END);
 
-            itemView.setOnClickListener(view -> Toast.makeText(view.getContext(), "Clicked on " + book.getName(), Toast.LENGTH_LONG).show());
-//            itemView.setOnClickListener(View -> Toast.makeText(View.getContext(), "Clicked on " + book.getNameLong(), Toast.LENGTH_LONG).show());
+            itemView.setOnClickListener(view -> Toast.makeText(view.getContext(), "Clicked on " +
+                    book.getName(), Toast.LENGTH_LONG).show());
+//            itemView.setOnClickListener(View -> Toast.makeText(View.getContext(), "Clicked on " +
+//                  book.getNameLong(), Toast.LENGTH_LONG).show());
         }
     }
 }
