@@ -2,6 +2,7 @@ package io.fmc.ui.posts;
 
 import android.util.Log;
 
+import java.util.Collections;
 import java.util.List;
 
 import io.fmc.data.models.Announcement;
@@ -31,6 +32,7 @@ public class PostFragmentPresenter implements PostMVP.Presenter {
             @Override
             public void onPostItemsFetched(List<Announcement> posts) {
                 if(view != null){
+                    Collections.reverse(posts);
                     view.displayPosts(posts);
                 }
             }
