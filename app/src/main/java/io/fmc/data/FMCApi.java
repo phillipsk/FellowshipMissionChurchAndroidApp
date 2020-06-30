@@ -1,6 +1,8 @@
 package io.fmc.data;
 
+import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -74,6 +76,7 @@ public class FMCApi {
 
     public static void listenToPostChanges(final PostModel.OnPostsFetched onPostsFetched) {
         FirebaseDatabase.getInstance().getReference("announcements").addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Log.e("databaseError", String.valueOf(dataSnapshot));
@@ -82,6 +85,8 @@ public class FMCApi {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     announcements.add(snapshot.getValue(Announcement.class));
                 }
+//                2020-06-14 Reverse sort Announcement array list; or sort by created date
+//                announcements.sort(Collections.reverseOrder());
                 onPostsFetched.onPostItemsFetched(announcements);
             }
 
@@ -92,3 +97,7 @@ public class FMCApi {
         });
     }
 }
+
+//gcloud ai-platform local predict --model-dir output/export/census/1576341050 --json-instances ../test.json
+// sudo rm -rf /google/google-cloud-sdk/lib/googlecloudsdk/command_lib/ml_engine/*.pyc
+// curl -s -X POST -H "Content-Type: application/json" --data-binary @request.json  https://vision.googleapis.com/v1/images:annotate?key=${AIzaSyC9C8ufoc74Tj49W45k9vTX3T-86oApZ1E}
