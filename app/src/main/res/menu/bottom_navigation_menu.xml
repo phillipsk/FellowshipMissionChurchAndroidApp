@@ -18,6 +18,9 @@
         android:id="@+id/bottom_nav_listen"
         android:icon="@drawable/ic_message"/>
 
+    <item android:title="Bible"
+          android:id="@+id/bottom_nav_bible"/>
+
     <item android:title="Location"
         android:id="@+id/bottom_nav_location"
         android:icon="@drawable/ic_location_icon"/>

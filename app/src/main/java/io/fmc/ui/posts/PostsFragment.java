@@ -48,7 +48,7 @@ public class PostsFragment extends BaseFragment implements PostMVP.View {
         super.onCreate(savedInstanceState);
 
 
-        ((AppController)getActivity().getApplication()).getComponent().inject(this);
+        // ((AppController)getActivity().getApplication()).getComponent().inject(this);
     }
 
     @Override

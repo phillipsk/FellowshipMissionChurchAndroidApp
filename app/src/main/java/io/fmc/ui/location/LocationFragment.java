@@ -25,7 +25,7 @@ import io.fmc.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LocationFragment extends Fragment implements OnMapReadyCallback {
+public class    LocationFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     SupportMapFragment mapFragment;

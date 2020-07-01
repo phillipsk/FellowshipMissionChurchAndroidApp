@@ -19,8 +19,8 @@
                                   <option name="values">
                                     <map>
                                       <entry key="assetType" value="IMAGE" />
-                                      <entry key="imageAsset" value="$USER_HOME$/Pictures/fmc_logo_oldM.jpg" />
-                                      <entry key="outputName" value="ic_action_name_oldM" />
+                                      <entry key="imageAsset" value="$USER_HOME$/Desktop/bg copy.png" />
+                                      <entry key="outputName" value="bg_copy" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -66,6 +66,11 @@
                                 </PersistentState>
                               </value>
                             </entry>
+                          </map>
+                        </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="ACTIONBAR" />
                           </map>
                         </option>
                       </PersistentState>
