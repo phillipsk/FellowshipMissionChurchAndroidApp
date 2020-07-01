@@ -64,7 +64,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class PostAdapterViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.post_title) TextView post_title;
-        @BindView(R.id.post_date) TextView post_date;
+//        @BindView(R.id.post_date) TextView post_date;
         @BindView(R.id.post_content) TextView post_content;
         @BindView(R.id.favorite) TextView favorite;
         @BindView(R.id.view) TextView view;
