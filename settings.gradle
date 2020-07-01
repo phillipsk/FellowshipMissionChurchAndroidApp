@@ -1,1 +1,2 @@
+include ':htmlparser'
 include ':app', ':greenDaoGenerator'

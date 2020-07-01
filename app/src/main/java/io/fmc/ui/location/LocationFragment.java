@@ -27,38 +27,58 @@ import io.fmc.R;
  */
 public class    LocationFragment extends Fragment implements OnMapReadyCallback {
 
+    private GoogleMap mMap;
+    SupportMapFragment mapFragment;
+
 
     public LocationFragment() {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setContentView()
+        if (mapFragment == null) {
+            mapFragment = SupportMapFragment.newInstance();
+            mapFragment.getMapAsync(this);
+            getChildFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.map_google_M, mapFragment)
+                    .commit();
+        }
+    }
 
-        SupportMapFragment mapFragment;
-
-        @Nullable
+    @Nullable
         @Override
         public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.fragment_location,container,false);
 
 
 
-            if (mapFragment == null) {
+/*            if (mapFragment == null) {
                 mapFragment = SupportMapFragment.newInstance();
                 mapFragment.getMapAsync(this);
                 getChildFragmentManager()
                         .beginTransaction()
                         .add(R.id.map_google_M, mapFragment)
                         .commit();
-            }
+            }*/
 
             return view;
         }
 
-        @Override
+/*    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        onMapReady(GoogleMap googleMap);
+    }*/
+
+    @Override
         public void onMapReady(GoogleMap googleMap) {
             MarkerOptions marker = new MarkerOptions();
-            marker.position(new LatLng(42.3284719,-71.097651));
-            marker.title("Fellowship Mission Church");
+            marker.position(new LatLng(42.3877133,-71.1013301));
+            marker.title(getString(R.string.app_name_long));
             marker.snippet("Click for directions!");
 
 
@@ -71,7 +91,7 @@ public class    LocationFragment extends Fragment implements OnMapReadyCallback 
             googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
                 public boolean onMarkerClick(Marker marker) {
-                    String url = "https://www.google.com/maps/place/Fellowship+Mission+Church/@42.3284719,-71.097651,17z";
+                    String url = "https://goo.gl/maps/QL8GceAdJMgt3bYA6";
                     Uri mapUri = Uri.parse(url);
                     Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
                     //mapIntent.setPackage("com.google.android.apps.maps");
