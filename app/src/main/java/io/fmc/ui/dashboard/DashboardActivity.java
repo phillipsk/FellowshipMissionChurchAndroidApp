@@ -1,5 +1,6 @@
 package io.fmc.ui.dashboard;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -14,12 +15,14 @@ import butterknife.ButterKnife;
 import io.fmc.R;
 import io.fmc.ui.aboutus.AboutUsFragment;
 import io.fmc.ui.base.BaseActivity;
+//import io.fmc.ui.bible.BibleFragment;
+import io.fmc.ui.connect.StayConnectedFragment;
 import io.fmc.ui.location.LocationFragment;
 import io.fmc.ui.posts.PostsFragment;
 import io.fmc.ui.listen.AudiosFragment;
 import io.fmc.utils.BottomNavigationViewHelper;
 
-public class DashboardActivity extends BaseActivity {
+public class DashboardActivity extends BaseActivity implements StayConnectedFragment.OnFragmentInteractionListener {
 
     @BindView(R.id.bottom_navigation) BottomNavigationView bottomNavigationView;
     @BindView(R.id.toolbar) Toolbar toolBar;
@@ -38,7 +41,7 @@ public class DashboardActivity extends BaseActivity {
         fragmentManager = getSupportFragmentManager();
 
 //        setupBaseActionbar(toolBar,"Home",false);
-        setupBaseActionbar(toolBar,"Fellowship Mission Church",false);
+        setupBaseActionbar(toolBar,getString(R.string.app_name_long),false);
 
 
 
@@ -101,10 +104,14 @@ public class DashboardActivity extends BaseActivity {
         Fragment fragment = null;
         if (menu_id == R.id.bottom_nav_home) {
             fragment = new AboutUsFragment();
-        } else if(menu_id == R.id.bottom_nav_the_word) {
+        }else if (menu_id == R.id.bottom_nav_connect){
+            fragment = new StayConnectedFragment();
+        }else if(menu_id == R.id.bottom_nav_the_word) {
             fragment = new PostsFragment();
-        } else if(menu_id == R.id.bottom_nav_listen) {
+        }else if(menu_id == R.id.bottom_nav_listen) {
             fragment = new AudiosFragment();
+//        }else if (menu_id == R.id.bottom_nav_bible){
+//            fragment = new BibleFragment();
         }else if(menu_id == R.id.bottom_nav_location){
             fragment = new LocationFragment();
         }
@@ -112,4 +119,8 @@ public class DashboardActivity extends BaseActivity {
     }
 
 
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }
