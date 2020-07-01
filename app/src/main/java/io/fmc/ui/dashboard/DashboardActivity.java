@@ -1,20 +1,19 @@
 package io.fmc.ui.dashboard;
 
+
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fmc.R;
-import io.fmc.ui.aboutus.AboutUsFragment;
 import io.fmc.ui.base.BaseActivity;
+
 //import io.fmc.ui.bible.BibleFragment;
 import io.fmc.ui.connect.StayConnectedFragment;
 import io.fmc.ui.location.LocationFragment;
@@ -65,13 +64,9 @@ public class DashboardActivity extends BaseActivity implements StayConnectedFrag
     private void setTupBottomNavigation() {
         switchFragments(R.id.bottom_nav_home);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switchFragments(item.getItemId());
-                return true;
-            }
-
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switchFragments(item.getItemId());
+            return true;
         });
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
@@ -102,7 +97,8 @@ public class DashboardActivity extends BaseActivity implements StayConnectedFrag
 
     public Fragment getItem(int menu_id) {
         Fragment fragment = null;
-        if (menu_id == R.id.bottom_nav_home) {
+        fragment = new BibleFragment();
+/*        if (menu_id == R.id.bottom_nav_home) {
             fragment = new AboutUsFragment();
         }else if (menu_id == R.id.bottom_nav_connect){
             fragment = new StayConnectedFragment();
@@ -114,7 +110,7 @@ public class DashboardActivity extends BaseActivity implements StayConnectedFrag
 //            fragment = new BibleFragment();
         }else if(menu_id == R.id.bottom_nav_location){
             fragment = new LocationFragment();
-        }
+        }*/
         return fragment;
     }
 

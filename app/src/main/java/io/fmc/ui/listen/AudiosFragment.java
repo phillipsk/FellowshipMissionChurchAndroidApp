@@ -79,6 +79,7 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
 
 //            daoSession = AppController.getDaoSession();
 
+
 //            DaoSession daoSession = ((AppController) getApplication()).getDaoSession();
 
 /*            AppController = AppController.getInstance();
@@ -93,6 +94,7 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
             initJCPlayer();
 
             updateList();
+
 
 //            AppController.getInstance().fetchAudioMessage();
         }
@@ -122,6 +124,7 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
 
                     if (broadcast_type.toString().equals(AppController.BROADCAST_DOWNLOAD_AUDIO_SUCCESSFUL)) {
                         audioMessages.clear();
+
                         audioMessages.addAll(AppController.getInstance().audioMessages);
                         initJCPlayer();
                         updateList();
