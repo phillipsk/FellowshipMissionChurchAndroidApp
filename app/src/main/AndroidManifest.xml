@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.fmc">
+          package="io.fmc">
 
     <application
         android:name=".di.AppController"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_mcc_2020"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_mcc_2020_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_api_key_fmc" />
+            android:value="@string/google_api_key_fmc"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
 
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.users.login.LoginActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.dashboard.DashboardActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.users.createaccount.CreateAccountActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.users.password.PasswordResetActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.videoplayer.PlayerActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".ui.posts.postdetail.PostDetailActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.users.createaccount.CreateAccountActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.users.password.PasswordResetActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.videoplayer.PlayerActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.posts.postdetail.PostDetailActivity"
+            android:screenOrientation="portrait"/>
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"/>

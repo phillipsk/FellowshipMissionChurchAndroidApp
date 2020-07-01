@@ -27,16 +27,17 @@
   <ImageButton
       android:id="@+id/btn_play"
       android:layout_alignParentRight="true"
-      android:src="@drawable/btn_play"
+      android:src="@mipmap/play_arrow_backup"
       android:background="@drawable/primary_round"
       android:padding="15dp"
       android:layout_width="40dp"
+      android:visibility="invisible"
       android:layout_height="40dp" />
 
   <ImageButton
       android:id="@+id/btn_pause"
       android:layout_alignParentRight="true"
-      android:src="@drawable/btn_stop"
+      android:src="@mipmap/stop_backup"
       android:visibility="invisible"
       android:background="@drawable/primary_round"
       android:padding="15dp"

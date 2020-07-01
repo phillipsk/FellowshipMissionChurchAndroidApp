@@ -32,7 +32,7 @@
 
 
         <ImageView
-            android:src="@mipmap/main_logo"
+            android:src="@mipmap/ic_launcher_mcc_2020"
             android:layout_gravity="left"
             android:layout_width="80dp"
             android:layout_height="60dp" />
@@ -50,7 +50,7 @@
             android:id="@+id/label_welcome"
             android:textColor="@color/black"
             android:textSize="@dimen/largest_text_size"
-            android:text="@string/fellowship_mission_church"
+            android:text="@string/mission_church"
             android:gravity="left"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
