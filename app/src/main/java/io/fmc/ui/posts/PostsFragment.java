@@ -10,7 +10,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +18,8 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import io.fmc.R;
-import io.fmc.data.models.Announcement;
+import io.fmc.data.models.AnnouncementPost;
 import io.fmc.di.AppController;
 import io.fmc.ui.base.BaseFragment;
 import io.fmc.ui.posts.postdetail.PostDetailActivity;
@@ -37,7 +35,7 @@ public class PostsFragment extends BaseFragment implements PostMVP.View {
 
     @BindView(R.id.recyclerView) RecyclerView recyclerView;
     PostAdapter postAdapter;
-    List<Announcement> posts = new ArrayList<>();
+    List<AnnouncementPost> posts = new ArrayList<>();
 
     @Inject
     PostMVP.Presenter presenter;
@@ -48,7 +46,7 @@ public class PostsFragment extends BaseFragment implements PostMVP.View {
         super.onCreate(savedInstanceState);
 
 
-        // ((AppController)getActivity().getApplication()).getComponent().inject(this);
+        ((AppController)getActivity().getApplication()).getComponent().inject(this);
     }
 
     @Override
@@ -71,9 +69,9 @@ public class PostsFragment extends BaseFragment implements PostMVP.View {
         postAdapter =  new PostAdapter(posts);
         postAdapter.setOnItemClickListener(new PostAdapter.PostAdapterListener() {
             @Override
-            public void onItemSelected(Announcement post) {
+            public void onItemSelected(AnnouncementPost post) {
                 Intent intent;
-                if(post.getContentType() == Announcement.Type.VIDEO) {
+                if(post.getContentType() == AnnouncementPost.Type.VIDEO) {
                     intent = new Intent(getContext(), PlayerActivity.class);
                     intent.putExtra("video_url", post.getVideo_url());
                 }else{
@@ -91,7 +89,7 @@ public class PostsFragment extends BaseFragment implements PostMVP.View {
     }
 
     @Override
-    public void displayPosts(List<Announcement> posts) {
+    public void displayPosts(List<AnnouncementPost> posts) {
         postAdapter.setData(posts);
     }
 

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FMCApp.iml" filepath="$PROJECT_DIR$/FMCApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/FellowshipMissionChurchAndroidApp.iml" filepath="$PROJECT_DIR$/FellowshipMissionChurchAndroidApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/greenDaoGenerator/greenDaoGenerator.iml" filepath="$PROJECT_DIR$/greenDaoGenerator/greenDaoGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/FellowshipMissionChurchAndroidApp.iml" filepath="$PROJECT_DIR$/.idea/FellowshipMissionChurchAndroidApp.iml" group="FellowshipMissionChurchAndroidApp" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="FellowshipMissionChurchAndroidApp/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/greenDaoGenerator/greenDaoGenerator.iml" filepath="$PROJECT_DIR$/.idea/modules/greenDaoGenerator/greenDaoGenerator.iml" group="FellowshipMissionChurchAndroidApp/greenDaoGenerator" />
     </modules>
   </component>
 </project>

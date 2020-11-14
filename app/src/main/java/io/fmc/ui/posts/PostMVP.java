@@ -2,10 +2,10 @@ package io.fmc.ui.posts;
 
 import java.util.List;
 
-import io.fmc.data.models.Announcement;
+import io.fmc.data.models.AnnouncementPost;
 
 /**
- * Created by sundayakinsete on 17/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 17/05/2018.
  */
 
 public interface PostMVP {
@@ -13,7 +13,7 @@ public interface PostMVP {
 
     interface View {
 
-        void displayPosts(List<Announcement> posts);
+        void displayPosts(List<AnnouncementPost> posts);
 
     }
 

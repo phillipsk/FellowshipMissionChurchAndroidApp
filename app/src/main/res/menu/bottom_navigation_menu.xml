@@ -3,25 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Home"
-        android:id="@+id/bottom_nav_home"
-        android:icon="@drawable/ic_home_icon"/>
+        android:id="@+id/bottom_nav_connected"
+        android:icon="@drawable/ic_heart"/>
+<!--        android:icon="@drawable/ic_home_icon"/>-->
+
+<!--    <item android:title="Connect"-->
+<!--          android:id="@+id/bottom_nav_connect"-->
+<!--          android:icon="@drawable/ic_wifi"/>-->
 
     <item android:title="Connect"
-          android:id="@+id/bottom_nav_connect"
-          android:icon="@drawable/ic_wifi"/>
-
-    <item android:title="The Word"
         android:id="@+id/bottom_nav_the_word"
-        android:icon="@drawable/ic_bible"/>
+        android:icon="@drawable/ic_notification"/>
 
     <item android:title="Listen"
         android:id="@+id/bottom_nav_listen"
         android:icon="@drawable/ic_message"/>
 
-    <item android:title="Bible"
-          android:id="@+id/bottom_nav_bible"/>
+    <item android:title="Pray"
+        android:id="@+id/bottom_nav_prayer"
+        android:icon="@drawable/ic_prayer"/>
 
-    <item android:title="Location"
-        android:id="@+id/bottom_nav_location"
-        android:icon="@drawable/ic_location_icon"/>
+    <item android:title="Info"
+        android:id="@+id/bottom_nav_info"
+        android:icon="@drawable/ic_info"/>
+
 </menu>

@@ -1,32 +1,31 @@
 package io.fmc.ui.posts.postdetail;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fmc.R;
-import io.fmc.data.models.Announcement;
+import io.fmc.data.models.AnnouncementPost;
 import io.fmc.ui.base.BaseActivity;
 
 public class PostDetailActivity extends BaseActivity {
 
-    Announcement post;
-    @BindView(R.id.backdrop) ImageView backdrop;
-    @BindView(R.id.content) TextView content;
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.title) TextView title;
+    AnnouncementPost post;
+    @BindView(R.id.backdrop)
+    ImageView backdrop;
+    @BindView(R.id.content)
+    TextView content;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.title)
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +33,9 @@ public class PostDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_post_detail);
         ButterKnife.bind(this);
 
-        post = (Announcement)getIntent().getExtras().getSerializable("post");
+        post = (AnnouncementPost) getIntent().getExtras().getSerializable("post");
 
-        setupBaseActionbar(toolbar,post.getTitle(),true);
+        setupBaseActionbar(toolbar, post.getTitle(), true);
 
         displayData();
     }
@@ -44,19 +43,24 @@ public class PostDetailActivity extends BaseActivity {
     private void displayData() {
 
         Picasso.with(getApplicationContext())
-                  .load(post.getPhoto())
-                  .error(R.mipmap.morning_prayer_definition)
-                  .into(backdrop);
+                .load(post.getImageUrl())
+                .error(R.mipmap.ic_launcher_mcc_2020_round)
+//                .resize(screenWidth, imageHeight)
+                .fit()
+//                .centerCrop()
+                .centerInside()
+                .into(backdrop);
+        
 
 
-      title.setText(post.getTitle());
-      content.setText(Html.fromHtml(post.getContent()));
+        title.setText(post.getTitle());
+        content.setText(Html.fromHtml(post.getContent()));
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case android.R.id.home:
                 finish();
                 break;

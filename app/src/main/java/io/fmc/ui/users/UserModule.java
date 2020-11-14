@@ -13,7 +13,7 @@ import io.fmc.ui.users.password.PasswordResetMVP;
 import io.fmc.utils.socialauth.SocialAuthentication;
 
 /**
- * Created by sundayakinsete on 18/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 18/05/2018.
  */
 
 @Module

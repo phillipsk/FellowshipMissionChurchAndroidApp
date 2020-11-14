@@ -2,10 +2,9 @@ package io.fmc.ui.users.password;
 
 import io.fmc.data.models.User;
 import io.fmc.ui.users.UserModel;
-import io.fmc.ui.users.createaccount.CreateAccountMVP;
 
 /**
- * Created by sundayakinsete on 18/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 18/05/2018.
  */
 
 public class PasswordResetActivityPresenter implements PasswordResetMVP.Presenter{

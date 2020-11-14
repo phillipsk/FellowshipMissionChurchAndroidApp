@@ -2,13 +2,9 @@ package io.fmc.ui.posts;
 
 import dagger.Module;
 import dagger.Provides;
-import io.fmc.ui.users.UserMVP;
-import io.fmc.ui.users.UserModel;
-import io.fmc.ui.users.createaccount.CreateAccountActivityPresenter;
-import io.fmc.ui.users.createaccount.CreateAccountMVP;
 
 /**
- * Created by sundayakinsete on 18/05/2018.
+ * Created by Kevin Phillips and Sunday Akinsete on 18/05/2018.
  */
 
 

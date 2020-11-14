@@ -16,7 +16,7 @@ import io.fmc.ui.users.password.PasswordResetActivity;
 
 
 /**
- * Created by sundayakinsete on 21/02/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 21/02/2018.
  */
 
 

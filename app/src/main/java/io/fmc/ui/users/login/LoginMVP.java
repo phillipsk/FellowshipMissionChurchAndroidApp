@@ -4,7 +4,7 @@ import io.fmc.data.models.User;
 import io.fmc.ui.base.BaseView;
 
 /**
- * Created by sundayakinsete on 14/04/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 14/04/2018.
  */
 
 public interface LoginMVP {

@@ -9,7 +9,7 @@ import android.support.v4.app.Fragment;
 import io.fmc.R;
 
 /**
- * Created by sundayakinsete on 16/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 16/05/2018.
  */
 
 public class BaseFragment extends Fragment {

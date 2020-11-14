@@ -2,7 +2,7 @@ package io.fmc.ui.dashboard;
 
 
 import android.net.Uri;
-import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,14 +12,15 @@ import android.support.v7.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fmc.R;
+import io.fmc.ui.aboutus.AboutUsFragment;
 import io.fmc.ui.base.BaseActivity;
-
-//import io.fmc.ui.bible.BibleFragment;
 import io.fmc.ui.connect.StayConnectedFragment;
+import io.fmc.ui.listen.AudiosFragment;
 import io.fmc.ui.location.LocationFragment;
 import io.fmc.ui.posts.PostsFragment;
-import io.fmc.ui.listen.AudiosFragment;
 import io.fmc.utils.BottomNavigationViewHelper;
+
+//import io.fmc.ui.bible.BibleFragment;
 
 public class DashboardActivity extends BaseActivity implements StayConnectedFragment.OnFragmentInteractionListener {
 
@@ -62,7 +63,7 @@ public class DashboardActivity extends BaseActivity implements StayConnectedFrag
     }
 
     private void setTupBottomNavigation() {
-        switchFragments(R.id.bottom_nav_home);
+        switchFragments(R.id.bottom_nav_connected);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switchFragments(item.getItemId());
@@ -97,20 +98,20 @@ public class DashboardActivity extends BaseActivity implements StayConnectedFrag
 
     public Fragment getItem(int menu_id) {
         Fragment fragment = null;
-        fragment = new BibleFragment();
-/*        if (menu_id == R.id.bottom_nav_home) {
+//        fragment = new BibleFragment();
+        if (menu_id == R.id.bottom_nav_connected) {
             fragment = new AboutUsFragment();
-        }else if (menu_id == R.id.bottom_nav_connect){
-            fragment = new StayConnectedFragment();
+//        }else if (menu_id == R.id.bottom_nav_connect){
+//            fragment = new StayConnectedFragment();
         }else if(menu_id == R.id.bottom_nav_the_word) {
             fragment = new PostsFragment();
         }else if(menu_id == R.id.bottom_nav_listen) {
             fragment = new AudiosFragment();
-//        }else if (menu_id == R.id.bottom_nav_bible){
-//            fragment = new BibleFragment();
-        }else if(menu_id == R.id.bottom_nav_location){
+        }else if (menu_id == R.id.bottom_nav_prayer){
+            fragment = new AboutUsFragment();
+        }else if(menu_id == R.id.bottom_nav_info){
             fragment = new LocationFragment();
-        }*/
+        }
         return fragment;
     }
 

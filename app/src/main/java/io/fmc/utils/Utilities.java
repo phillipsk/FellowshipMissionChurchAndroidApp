@@ -8,7 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
 /**
- * Created by Akinsete on 5/26/16.
+ * Created by Kevin Phillips and Sunday Akinsete on 5/26/16.
  */
 public class Utilities {
 
