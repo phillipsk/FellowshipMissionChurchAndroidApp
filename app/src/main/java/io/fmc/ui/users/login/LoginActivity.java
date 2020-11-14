@@ -4,9 +4,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.EditText;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.LoggingBehavior;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.twitter.sdk.android.core.identity.TwitterAuthClient;
@@ -161,11 +167,44 @@ public class LoginActivity extends BaseActivity implements LoginMVP.View, Social
 
     @Override
     public void onAuthenticationComplete(User user) {
-
+        startActivity(new Intent(this, DashboardActivity.class));
+        try {
+            useGraphAPI();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void onAuthenticationError(String error) {
+
+    }
+
+    public void useGraphAPI() throws Exception {
+        FacebookSdk.addLoggingBehavior(LoggingBehavior.REQUESTS);
+
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
+
+//        accessToken = "EAAEamWgsjN4BALXr7dq1MDjywGvYYBhyKQ6qp1xiCy4XTmPoPXWuOuqIJmx05OJYeZCGjkJ2sACqNFJ3ZApwZATfzopowUIsOg6ulTFywxCnkDOX2UZCSLYfRZBKNzFOV8mcQKMZAtk8u91sfcQwBTNIh4fi6IHTsraVZADnBZB7gUf4LLxcxVZBnfdHZAPeVzZCJgwxZCBS04dkvQZDZD"
+//        EAAEamWgsjN4BALmlv4ZCnl08DTMzyW1EHw4iGO5lZB6K8tyFXRrTqKHj2dGmK2DLmoMXLGROsPWGLi4JoPNyJ8ZCa4bBcC9ZBApoSURMvMesGBsHWBeYpFoTfTGy4b44yRRDZCZCgQi2RmZBNo7zntUnp92UnOSSYy9FxNZA5GZAd8UyUFFMVyh9GlZAgcATBdwp5wekb6ZCaefFgZDZD
+        GraphRequest request = GraphRequest.newGraphPathRequest(
+                accessToken,
+                "/120085814675079/published_posts",
+                new GraphRequest.Callback() {
+                    @Override
+                    public void onCompleted(GraphResponse response) {
+                        // Insert your code here
+                        Log.d("GraphAPI FB debug", String.valueOf(response));
+                        Log.d("GraphAPI FB debug", response.toString());
+                    }
+                });
+
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "picture,created_time,story,id,icon,full_picture,attachments{media,media_type},call_to_action,message");
+        parameters.putString("limit", "10");
+        request.setParameters(parameters);
+        request.executeAsync();
 
     }
 }

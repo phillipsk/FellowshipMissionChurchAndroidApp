@@ -17,9 +17,10 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import io.fmc.FellowshipApplication;
 import io.fmc.R;
 import io.fmc.network.BibleBook;
+
+//import io.fmc2.FellowshipApplication;
 
 public class BibleFragment extends Fragment implements BibleScreen {
 
@@ -45,7 +46,8 @@ public class BibleFragment extends Fragment implements BibleScreen {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        ((FellowshipApplication) context.getApplicationContext()).getAppComponent().inject(this);
+//        AppController.getAppContext().getApplicationContext()
+//        ((FellowshipApplication) context.getApplicationContext()).getAppComponent().inject(this);
 
         biblePresenter.bind(this);
 

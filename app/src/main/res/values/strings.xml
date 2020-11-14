@@ -5,8 +5,12 @@
     <string name="continue_with_google">Continue with google</string>
     <string name="mission_church">Mission Church</string>
     <string name="google_api_key_fmc">AIzaSyCxIzFEV5kl85iHqSmmYFHaPqmbg5EHpx4</string>
-    <string name="facebook_app_id">106703874382202</string>
-    <string name="fb_login_protocol_scheme">fb166447543925440</string>
+<!--    <string name="facebook_app_id">120085814675079</string>-->
+<!--    <string name="facebook_app_id">310721156779230</string>-->
+    <string name="facebook_app_id">310721156779230</string>
+    <string name="fb_login_protocol_scheme">fb310721156779230</string>
+
+<!--    <string name="fb_login_protocol_scheme">fb166447543925440</string>-->
 
 
     <string-array name="models_details">

@@ -11,7 +11,7 @@ import io.fmc.ui.users.login.LoginActivity;
 
 
 /**
- * Created by Akinsete on 7/15/17.
+ * Created by Kevin Phillips and Sunday Akinsete on 7/15/17.
  */
 
 public class SessionManager {

@@ -43,7 +43,7 @@ import io.fmc.utils.LogHelper;
 
 
 /**
- * Created by sundayakinsete on 29/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 29/05/2018.
  */
 
 public class SocialAuthentication {
@@ -134,7 +134,7 @@ public class SocialAuthentication {
 
                     socialAuthenticationListener.onAuthenticationComplete(user);
 
-                   // handleLogin(credential,user,socialAuthenticationListener);
+                    handleLogin(credential,user,socialAuthenticationListener);
 
                 }catch (Exception s){
                     socialAuthenticationListener.onAuthenticationError(s.toString());

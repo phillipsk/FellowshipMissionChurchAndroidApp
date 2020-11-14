@@ -16,15 +16,16 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
-import io.fmc.data.models.Announcement;
+import io.fmc.data.models.AnnouncementPost;
 import io.fmc.data.models.User;
 import io.fmc.di.AppController;
 import io.fmc.ui.posts.PostModel;
 import io.fmc.ui.users.UserModel;
 
 /**
- * Created by sundayakinsete on 17/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 17/05/2018.
  */
 
 public class FMCApi {
@@ -75,23 +76,27 @@ public class FMCApi {
     }
 
     public static void listenToPostChanges(final PostModel.OnPostsFetched onPostsFetched) {
-        FirebaseDatabase.getInstance().getReference("announcements").addValueEventListener(new ValueEventListener() {
+//        FirebaseDatabase.getInstance().getReference().addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("Church Events").addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Log.e("databaseError", String.valueOf(dataSnapshot));
+//                String value = dataSnapshot.getValue(String.class);
+//                Log.d(TAG, "Value is: " + value);
 
-                List<Announcement> announcements = new ArrayList<>();
+                List<AnnouncementPost> announcementPosts = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    announcements.add(snapshot.getValue(Announcement.class));
+                    Log.d("Firebase obj key ", Objects.requireNonNull(snapshot.getKey()));
+                    announcementPosts.add(snapshot.getValue(AnnouncementPost.class));
                 }
 //                2020-06-14 Reverse sort Announcement array list; or sort by created date
 //                announcements.sort(Collections.reverseOrder());
-                onPostsFetched.onPostItemsFetched(announcements);
+                onPostsFetched.onPostItemsFetched(announcementPosts);
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("databaseError", String.valueOf(databaseError));
             }
         });

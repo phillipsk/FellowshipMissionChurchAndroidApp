@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import io.fmc.R;
 
 /**
- * Created by sundayakinsete on 16/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 16/05/2018.
  */
 
 public class BaseActivity extends AppCompatActivity {

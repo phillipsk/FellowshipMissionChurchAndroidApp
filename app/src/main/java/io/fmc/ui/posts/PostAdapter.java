@@ -10,27 +10,28 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.fmc.R;
-import io.fmc.data.models.Announcement;
+import io.fmc.data.models.AnnouncementPost;
 
 /**
- * Created by sundayakinsete on 18/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 18/05/2018.
  */
 
 public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     PostAdapterListener  postAdapterListener;
-    List<Announcement> posts;
+    List<AnnouncementPost> posts;
 
-    public PostAdapter(List<Announcement> posts) {
+    public PostAdapter(List<AnnouncementPost> posts) {
         this.posts = posts;
     }
 
     public interface PostAdapterListener {
-        void onItemSelected(Announcement post);
+        void onItemSelected(AnnouncementPost post);
     }
 
     public void setOnItemClickListener(PostAdapterListener onItemClickListener){
@@ -55,7 +56,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return posts.size();
     }
 
-    public void setData(List<Announcement> data) {
+    public void setData(List<AnnouncementPost> data) {
         this.posts = data;
         notifyDataSetChanged();
     }
@@ -64,7 +65,7 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class PostAdapterViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.post_title) TextView post_title;
-//        @BindView(R.id.post_date) TextView post_date;
+        @BindView(R.id.post_date) TextView post_date;
         @BindView(R.id.post_content) TextView post_content;
         @BindView(R.id.favorite) TextView favorite;
         @BindView(R.id.view) TextView view;
@@ -75,10 +76,16 @@ public class PostAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ButterKnife.bind(this,itemView);
         }
 
-        public void setData(final Announcement post) {
+        public void setData(final AnnouncementPost post) {
             post_title.setText(post.getTitle());
-            post_content.setText(Html.fromHtml(post.getContent()));
-            favorite.setText(String.valueOf(post.getLikes()));
+            post_content.setText(Html.fromHtml(post.getText()));
+            post_date.setText(post.getTimeDate(post.getDate()));
+            Random r = new Random();
+            int i1 = r.nextInt(18 - 5) + 5;
+            int i2 = r.nextInt(18 - 5) + 5;
+//            favorite.setText(String.valueOf(post.getLikes()));
+            favorite.setText(String.valueOf(i1));
+            view.setText(String.valueOf(i2));
 
             Log.e("favorite",String.valueOf(post.getLiked()));
 

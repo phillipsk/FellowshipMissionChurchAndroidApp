@@ -10,7 +10,7 @@ import io.fmc.ui.bible.BibleFragment;
 @Component(modules = {DataModule.class})
 public interface AppComponent {
 
-    void inject(FellowshipApplication fellowshipApplication);
+//    void inject(FellowshipApplication fellowshipApplication);
 
     void inject(BibleFragment bibleFragment);
 

@@ -19,13 +19,13 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import io.fmc.R;
-
+import io.fmc.di.AppController;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class    LocationFragment extends Fragment implements OnMapReadyCallback {
+public class LocationFragment extends Fragment implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     SupportMapFragment mapFragment;
@@ -38,9 +38,9 @@ public class    LocationFragment extends Fragment implements OnMapReadyCallback 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView()
-        if (mapFragment == null) {
-            mapFragment = SupportMapFragment.newInstance();
+//        setContentView(R.layout.fragment_location);
+        mapFragment = AppController.getInstance().getMapFragment();
+        if (mapFragment != null) {
             mapFragment.getMapAsync(this);
             getChildFragmentManager()
                     .beginTransaction()
@@ -77,14 +77,17 @@ public class    LocationFragment extends Fragment implements OnMapReadyCallback 
     @Override
         public void onMapReady(GoogleMap googleMap) {
             MarkerOptions marker = new MarkerOptions();
-            marker.position(new LatLng(42.3877133,-71.1013301));
+//            42.387678, -71.100579
+            LatLng latLng = new LatLng(42.387572, -71.101400);
+
+//            marker.position(new LatLng(42.387678, -71.100579));
+            marker.position(latLng);
             marker.title(getString(R.string.app_name_long));
-            marker.snippet("Click for directions!");
+            marker.snippet("Tap for directions!");
 
 
             Marker myMarker = googleMap.addMarker(marker);
-            LatLng center = new LatLng(42.3284719,-71.097651);
-            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(center,17));
+            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,13));
 
             myMarker.showInfoWindow();
 

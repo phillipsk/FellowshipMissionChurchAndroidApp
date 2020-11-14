@@ -4,7 +4,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 /**
- * Created by sundayakinsete on 05/04/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 05/04/2018.
  */
 
 public class LogHelper {

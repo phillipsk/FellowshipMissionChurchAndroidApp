@@ -91,11 +91,15 @@ public class AudiosFragment extends Fragment implements JcPlayerService.JcPlayer
 
         private void fetchLocalData() {
             audioMessages = daoSession.getAudioMessageDao().loadAll();
+
+
             initJCPlayer();
 
             updateList();
 
-
+ /*JUL-20 refactored and replaced fetch call to AppController activity class onCreate method
+  * in an effort to download-async audioMessages in the background, no performance improvement yet
+ */
 //            AppController.getInstance().fetchAudioMessage();
         }
 

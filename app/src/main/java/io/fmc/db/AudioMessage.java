@@ -24,18 +24,20 @@ public class AudioMessage {
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
 
-    @Generated
-    public AudioMessage() {
-    }
-
-    public AudioMessage(Long id) {
-        this.id = id;
-    }
+//    @Generated
+//    public AudioMessage() {
+//    }
+//
+//    public AudioMessage(Long id) {
+//        this.id = id;
+//    }
 
     @Generated
     public AudioMessage(Long id, String name, String path, Boolean is_playing) {
         this.id = id;
         this.name = name;
+//        TODO: edit entity prior to construction, avoid formatting on each getName call
+//        this.name = name.replace("_","/");
         this.path = path;
         this.is_playing = is_playing;
     }
@@ -50,7 +52,8 @@ public class AudioMessage {
 
     @NotNull
     public String getName() {
-        return name;
+//        return name;
+        return name.replace("_","/");
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */

@@ -1,7 +1,7 @@
 package io.fmc.data.models;
 
 /**
- * Created by sundayakinsete on 17/05/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 17/05/2018.
  */
 
 public class User {

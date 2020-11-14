@@ -8,7 +8,7 @@ import io.fmc.ui.users.UserModel;
 import io.fmc.utils.SessionManager;
 
 /**
- * Created by sundayakinsete on 14/04/2018.
+ * Created by  Kevin Phillips and Sunday Akinsete on 14/04/2018.
  */
 
 public class LoginActivityPresenter implements LoginMVP.Presenter {
